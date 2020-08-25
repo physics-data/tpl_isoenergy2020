@@ -18,7 +18,7 @@
 
 扫描隧道显微镜利用量子隧穿效应，对探针和表面之间的隧穿电流大小的探测，可以观察表面上单原子级别的起伏。
 
-![扫描隧道显微镜结构(from Wikipedia)](pics\STM-schematics.png)  
+![扫描隧道显微镜结构(from Wikipedia)](pics/STM-schematics.png)  
 *扫描隧道显微镜结构 (from Wikipedia)*
 
 
@@ -37,7 +37,7 @@
 
 
 
-![铜表面二维电子气的QPI图样及其FFT Nat. Commun. 6, 8691 (2015)](pics\copper-QPI.png)  
+![铜表面二维电子气的QPI图样及其FFT Nat. Commun. 6, 8691 (2015)](pics/copper-QPI.png)  
 *铜表面二维电子气的 QPI 图样及其 FFT [Nat. Commun. 6, 8691 (2015)]*
 
 利用对 QPI 分析，人们研究了石墨烯（Graphene）[Science 317, 219–222 (2007)]，铜氧化物高温超导体（High-Tc Cuprate Superconductors）[Science 297, 1148–1151 (2002)]、铁基超导体（Fe-based Superconductors）[Nat. Commun. 7, 10565 (2016)]等新奇材料的电子结构，极大促进了人类对物质世界的认识与理解。
@@ -66,7 +66,7 @@ $$
 - 第二列为真实实验结果经过二维傅里叶变换FFT之后的图像
 - 第一列为我们的目标：干净的等能面结构
 
-![image-20200824111951427](pics\exps.png)
+![image-20200824111951427](pics/exps.png)
 
 ### 大作业目标
 
@@ -81,7 +81,7 @@ $$
 - 大作业第二阶段（data mining）：第一阶段的逆过程，即通过给定的QPI 图样数据反推动量空间等能面结构。
   - 这一阶段的目标是真正从（模拟的）QPI图样数据中找到等能面结构，以给定的模拟数据作为评分标准，如果结果较好可以进一步在真实的QPI实验数据中应用。
 
-![image-20200824111840314](pics\qpi2stm_exp1.png)
+![image-20200824111840314](pics/qpi2stm_exp1.png)
 
 ![image-20200824111810722](pics\qpi2stm_exp2.png)
 
