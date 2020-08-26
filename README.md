@@ -83,7 +83,7 @@ $$
 
 ![image-20200824111840314](pics/qpi2stm_exp1.png)
 
-![image-20200824111810722](pics\qpi2stm_exp2.png)
+![image-20200824111810722](pics/qpi2stm_exp2.png)
 
 ## 数据说明
 
