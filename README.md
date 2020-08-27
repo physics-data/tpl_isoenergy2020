@@ -192,7 +192,7 @@ python3 damping.py dos-position/0058.h5 dos-position/damp/0023.h5
 程序的调用形式为：
 
 ```bash
-python3 damping.py multi_scatter_position.csv dos-position/0058.h5 dos-position/0067.h5 dos-position/0043.h5 dos-position/0083.h5 dos-position/0012.h5 dos-position/0040.h5 dos-position/0018.h5 dos-multi-position/0001.h5
+python3 multi_scatter.py 0 multi_scatter_position.csv dos-position/0058.h5 dos-position/0067.h5 dos-position/0043.h5 dos-position/0083.h5 dos-position/0012.h5 dos-position/0040.h5 dos-position/0018.h5 dos-multi-position/0001.h5
 ```
 
 ### 提高要求
