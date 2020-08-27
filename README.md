@@ -171,7 +171,7 @@ $$
 其中 $L=20$ 为衰减长度，定为 20 个实空间像素单位。程序的调用形式为：
 
 ```bash
-python3 damping.py dos-position/0023.h5 dos-position/damp/0023.h5
+python3 damping.py dos-position/0058.h5 dos-position/damp/0023.h5
 ```
 
 #### `dos-position/%.h5`
@@ -182,7 +182,18 @@ python3 damping.py dos-position/0023.h5 dos-position/damp/0023.h5
 
 多散射点叠加干涉：
 
+*注意本题需要叠加七个等能面，仅需要生成一张图片*
+
 在实空间进行平移，使生成散射点不在图像中心，并生成存在多个散射点叠加干涉的 QPI 图样。
+
+本题中选择叠加的七个等能面序号为58, 67, 43, 83, 12, 40, 18.
+生成QPI实空间路径为`dos-multi-postion`
+散射中心参考`multi_scatter_position.csv`
+
+程序的调用形式为：
+```bash
+python3 damping.py multi_scatter_position.csv dos-position/0058.h5 dos-position/0067.h5 dos-position/0043.h5 dos-position/0083.h5 dos-position/0012.h5 dos-position/0040.h5 dos-position/0018.h5 dos-multi-postion/0001.h5
+```
 
 
 ### 提高要求
