@@ -120,7 +120,7 @@ $$
 
 ####  `scatter.py `
 
-读取 `dos-momentum/%.h5`，输出 `dos-position/%.h5`，其中`%`代表从 `0000` 到 `0099` 的字符串。以 `dos-momentum/0023.h5` 程序的调用形式为：
+读取 `dos-momentum/%.h5`，输出 `dos-position/%.h5`，其中`%`代表从 `0000` 到 `0099` 的字符串。以 `dos-momentum/0023.h5` 程序的调用形式形如：
 
 ```bash
 python3 scatter.py 0 dos-momentum/0023.h5 dos-position/0023.h5
@@ -150,7 +150,7 @@ $$
 
 #### `gimage.py`
 
-读取实空间（当 `sys.argv[1]`  为`1`）或倒空间（当`sys.argv[1]` 为 `0`）的二维态密度数组，画出可以表征二维标量场的图形。以 `dos-momentum/0023.h5` 为例，程序的调用形式为：
+读取实空间（当 `sys.argv[1]`  为`1`）或倒空间（当`sys.argv[1]` 为 `0`）的二维态密度数组，画出可以表征二维标量场的图形。以 `dos-momentum/0023.h5` 为例，程序的调用形式形如：
 
 ```bash
 python3 gimage.py 0 dos-momentum/0023.h5 p_momentum/0023.png
@@ -168,7 +168,7 @@ $$
  D^*(\mathbf{r}) = D(\mathbf{r}) e^{-|\mathbf{r}| / L} 
 $$
 
-其中 $L=20$ 为衰减长度，定为 20 个实空间像素单位。程序的调用形式为：
+其中 $L=20$ 为衰减长度，定为 20 个实空间像素单位。程序的调用形式形如：
 
 ```bash
 python3 damping.py dos-position/0058.h5 dos-position/damp/0023.h5
@@ -182,19 +182,18 @@ python3 damping.py dos-position/0058.h5 dos-position/damp/0023.h5
 
 多散射点叠加干涉：
 
-*注意本题需要叠加七个等能面，仅需要生成一张图片*
+**注意本题需要叠加七个等能面，仅需要生成一张图片**
 
 在实空间进行平移，使生成散射点不在图像中心，并生成存在多个散射点叠加干涉的 QPI 图样。
 
-本题中选择叠加的七个等能面序号为58, 67, 43, 83, 12, 40, 18.
-生成QPI实空间路径为`dos-multi-postion`
-散射中心参考`multi_scatter_position.csv`
+本题中选择叠加的七个等能面序号为：58, 67, 43, 83, 12, 40, 18.
+生成QPI实空间路径为`dos-multi-position`，散射中心参考`multi_scatter_position.csv`
 
 程序的调用形式为：
-```bash
-python3 damping.py multi_scatter_position.csv dos-position/0058.h5 dos-position/0067.h5 dos-position/0043.h5 dos-position/0083.h5 dos-position/0012.h5 dos-position/0040.h5 dos-position/0018.h5 dos-multi-postion/0001.h5
-```
 
+```bash
+python3 damping.py multi_scatter_position.csv dos-position/0058.h5 dos-position/0067.h5 dos-position/0043.h5 dos-position/0083.h5 dos-position/0012.h5 dos-position/0040.h5 dos-position/0018.h5 dos-multi-position/0001.h5
+```
 
 ### 提高要求
 
