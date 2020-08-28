@@ -1,6 +1,4 @@
-# Isoenergy
-
-扫描隧道显微镜散射解金属等能面。
+# 扫描隧道显微镜散射解金属等能面
 
 提示：如果你无法渲染其中的公式，请阅读 `README.pdf`，二者内容相同。
 
@@ -19,8 +17,6 @@
 ![扫描隧道显微镜结构(from Wikipedia)](pics/STM-schematics.png)  
 *扫描隧道显微镜结构 (from Wikipedia)*
 
-
-
 通常认为扫描隧道显微镜（Scanning tunneling microscope, STM）探测到的都是实空间（Real-space）的信号，要想得到倒空间（k-space）的信息还得依赖于其它具有动量分辨能力的测量手段。例如，角分辨光电子谱（Angle-resolved Photoemission Spectroscopy , ARPES）是一种能直接获得电子动量与能量的测量方法。
 
 **那么，我们有没有可能同时获得实空间与动量空间的信息呢？或者说，我们有没有可能从实空间的图像中找出动量空间的信息呢？**
@@ -29,11 +25,7 @@
 
 我们知道实空间与动量空间之间存在傅里叶变换的关系，因此可以尝试使用傅里叶变换的手段从STM 测到的实空间图像中获得动量空间的信息，进而对能带结构进行进一步深入的研究。这类方法被称作傅里叶变换隧道谱学（Fourier Transform STS, FT-STS）的方法，
 
-
-
 那么 FT-STS 的基本原理是怎样的呢？我们通过 STM 测量样品在某个能量上各处的局域能态密度（Local DOS）。当样品上有杂质时（真实材料中往往如此），该处的波函数将被散射。由于该散射过程通常是相干的，入射波与反射波将相干叠加形成驻波，对局域能态密度形成调制，所形成的波纹状图案通常被称为准粒子干涉（Quasiparticle Interference, QPI）图样。
-
-
 
 ![铜表面二维电子气的QPI图样及其FFT Nat. Commun. 6, 8691 (2015)](pics/copper-QPI.png)  
 *铜表面二维电子气的 QPI 图样及其 FFT [Nat. Commun. 6, 8691 (2015)]*
@@ -118,7 +110,7 @@ $$
 
 以下是三个文件具体的输入输出格式要求。
 
-####  `scatter.py `
+#### `scatter.py`
 
 读取 `dos-momentum/%.h5`，输出 `dos-position/%.h5`，其中`%`代表从 `0000` 到 `0099` 的字符串。以 `dos-momentum/0023.h5` 程序的调用形式形如：
 
@@ -146,7 +138,6 @@ D = D(\mathbf{r_1}) + D(\mathbf{r_2}) \\
 = \int \mathrm{d}\mathbf{k}_{11} f_1(\mathbf{k}_{11}) \left|\int \mathrm{d}\mathbf{k}_{12} f_1(\mathbf{k}_{12}) (e^{-i\mathbf{k}_{11}\mathbf{r}} + e^{-i\mathbf{k}_{12}\mathbf{r}})\right|^2 \\
 + \int \mathrm{d}\mathbf{k}_{21} f_1(\mathbf{k}_{21}) \left|\int \mathrm{d}\mathbf{k}_{22} f_1(\mathbf{k}_{22}) (e^{-i\mathbf{k}_{21}\mathbf{r}} + e^{-i\mathbf{k}_{22}\mathbf{r}})\right|^2
 $$
-
 
 #### `gimage.py`
 
@@ -207,9 +198,7 @@ $$
 P(\mathbf{k}_1,\mathbf{k}_2 )=\frac{1}{2}\left( 1-\frac{\mathbf{k}_1 \cdot \mathbf{k}_2}{\left| \mathbf{k}_1 \right| \left| \mathbf{k}_2 \right|} \right)
 $$
 
-
-
-​	或者用矩阵形式进行任意指定。
+​或者用矩阵形式进行任意指定。
 
 - 生成二维石墨烯的QPI图像
 
