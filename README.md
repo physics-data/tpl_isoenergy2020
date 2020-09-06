@@ -129,7 +129,7 @@ $$
 如果散射中心有磁性，即 `sys.argv[1]` 为 `1` 时，需要给出射波填加一个 $\pi$ 的相位：
 
 $$
-D(\mathbf{r}) = \int \mathrm{d}\mathbf{k}_1 f(\mathbf{k}_1) \left|\int \mathrm{d}\mathbf{k}_2 f(\mathbf{k}_2) (e^{-i\mathbf{k}_1\mathbf{r}} + e^{-i(\mathbf{k}_2\mathbf{r} + \pi)})\right|^2 
+D(\mathbf{r}) = \int \mathrm{d}\mathbf{k}_1 f(\mathbf{k}_1) \left|\int \mathrm{d}\mathbf{k}_2 f(\mathbf{k}_2) (e^{-i\mathbf{k}_1\mathbf{r}} + e^{-i(\mathbf{k}_2\mathbf{r} + \pi)})\right|^2
 $$
 
 如果有多个散射点，态密度为多个散射点的叠加：
@@ -156,7 +156,7 @@ python3 gimage.py 0 dos-momentum/0023.h5 p_momentum/0023.png
 对理想条件下的散射态密度依距离衰减：
 
 $$
- D^*(\mathbf{r}) = D(\mathbf{r}) e^{-|\mathbf{r}| / L} 
+D^*(\mathbf{r}) = D(\mathbf{r}) e^{-|\mathbf{r}| / L}
 $$
 
 其中 $L=20$ 为衰减长度，定为 20 个实空间像素单位。程序的调用形式形如：
@@ -173,17 +173,18 @@ python3 damping.py dos-position/0058.h5 dos-position/damp/0023.h5
 
 多散射点叠加干涉：
 
-**注意本题需要叠加七个等能面，仅需要生成一张图片**
+**注意本题仅需要生成一张图片**
 
-在实空间进行平移，使生成散射点不在图像中心，并生成存在多个散射点叠加干涉的 QPI 图样。
+在实空间进行平移，使生成散射点不在图像中心，并生成存在多个散射点叠加干涉的 QPI 图样。在本题中我们仅仅要求考虑一阶散射及其衰减，不考虑二阶及以上，或者复杂路径的散射情况。
 
-本题中选择叠加的七个等能面序号为：58, 67, 43, 83, 12, 40, 18.
-生成QPI实空间路径为`dos-multi-position`，散射中心参考`multi_scatter_position.csv`
+生成QPI实空间图样保存路径为`dos-multi-position`，散射中心存储在`multi_scatter_position.csv`
+
+本题中选择叠加的等能面序号为：**01**
 
 程序的调用形式为：
 
 ```bash
-python3 multi_scatter.py 0 multi_scatter_position.csv dos-position/0058.h5 dos-position/0067.h5 dos-position/0043.h5 dos-position/0083.h5 dos-position/0012.h5 dos-position/0040.h5 dos-position/0018.h5 dos-multi-position/0001.h5
+python3 multi_scatter.py 0 multi_scatter_position.csv dos-position/0001.h5 dos-multi-position/0001.h5
 ```
 
 ### 提高要求
@@ -198,7 +199,7 @@ $$
 P(\mathbf{k}_1,\mathbf{k}_2 )=\frac{1}{2}\left( 1-\frac{\mathbf{k}_1 \cdot \mathbf{k}_2}{\left| \mathbf{k}_1 \right| \left| \mathbf{k}_2 \right|} \right)
 $$
 
-​或者用矩阵形式进行任意指定。
+或者用矩阵形式进行任意指定。
 
 - 生成二维石墨烯的QPI图像
 
