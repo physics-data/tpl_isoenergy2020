@@ -132,13 +132,6 @@ $$
 D(\mathbf{r}) = \int \mathrm{d}\mathbf{k}_1 f(\mathbf{k}_1) \left|\int \mathrm{d}\mathbf{k}_2 f(\mathbf{k}_2) (e^{-i\mathbf{k}_1\mathbf{r}} + e^{-i(\mathbf{k}_2\mathbf{r} + \pi)})\right|^2
 $$
 
-如果有多个散射点，态密度为多个散射点的叠加：
-$$
-D = D(\mathbf{r_1}) + D(\mathbf{r_2}) \\
-= \int \mathrm{d}\mathbf{k}_{11} f_1(\mathbf{k}_{11}) \left|\int \mathrm{d}\mathbf{k}_{12} f_1(\mathbf{k}_{12}) (e^{-i\mathbf{k}_{11}\mathbf{r}} + e^{-i\mathbf{k}_{12}\mathbf{r}})\right|^2 \\
-+ \int \mathrm{d}\mathbf{k}_{21} f_1(\mathbf{k}_{21}) \left|\int \mathrm{d}\mathbf{k}_{22} f_1(\mathbf{k}_{22}) (e^{-i\mathbf{k}_{21}\mathbf{r}} + e^{-i\mathbf{k}_{22}\mathbf{r}})\right|^2
-$$
-
 #### `gimage.py`
 
 读取实空间（当 `sys.argv[1]`  为`1`）或倒空间（当`sys.argv[1]` 为 `0`）的二维态密度数组，画出可以表征二维标量场的图形。以 `dos-momentum/0023.h5` 为例，程序的调用形式形如：
@@ -171,13 +164,16 @@ python3 damping.py dos-position/0058.h5 dos-position/damp/0023.h5
 
 #### `multi_scatter.py`
 
-多散射点叠加干涉：
-
 **注意本题仅需要生成一张图片**
 
-在实空间进行平移，使生成散射点不在图像中心，并生成存在多个散射点叠加干涉的 QPI 图样。在本题中我们仅仅要求考虑一阶散射及其衰减，不考虑二阶及以上，或者复杂路径的散射情况。
+在实空间进行平移，使生成散射点不在图像中心，并生成存在多个散射点叠加干涉的 QPI 图样。在本题中我们仅仅要求考虑一阶散射及其衰减，不考虑二阶及以上，或者复杂路径的散射情况，态密度为每个散射点折返路径引发相位和原始相位的叠加。以位于 $\mathbf{r}_1$ 和 $\mathbf{r}_2$ 的两个散射点为例：
 
-生成QPI实空间图样保存路径为`dos-multi-position`，散射中心存储在`multi_scatter_position.csv`
+$$
+D(\mathbf{r}) = \left| \int \int \mathrm{d}\mathbf{k}_1 \mathrm{d}\mathbf{k}_2 f(\mathbf{k}_1) f(\mathbf{k}_2) 1 + e^{-i 2 \mathbf{k}_1(\mathbf{r}_1 - \mathbf{r})} e^{-\frac{2|\mathbf{r}_1 - \mathbf{r}|}{L}} + e^{-i 2 \mathbf{k}_2(\mathbf{r}_2 - \mathbf{r})} e^{-\frac{2|\mathbf{r}_1 - \mathbf{r}|}{L}} \right|^2 \\
+$$
+更多的散射点依此类推。
+
+生成QPI实空间图样保存路径为`dos-multi-position`，散射中心坐标存储在`multi_scatter_position.csv`
 
 本题中选择叠加的等能面序号为：**01**
 
