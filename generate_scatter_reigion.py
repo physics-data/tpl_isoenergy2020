@@ -2,7 +2,7 @@
 # @Author: AnnaZhang
 # @Date:   2020-08-28 10:29:50
 # @Last Modified by:   AnnaZhang
-# @Last Modified time: 2020-09-06 21:29:25
+# @Last Modified time: 2020-09-06 21:38:06
 import numpy as np
 import pandas as pd
 import math
@@ -69,8 +69,8 @@ def gen_random_points(n_pieces=4):
 
 def interp(points_df):
     x = np.array(points_df["x"]).astype(float)
-    y = np.array(points_df["y"]).astype(float)  # 离散点的分布
-    xx = np.linspace(0, SCALE, SCALE + 1)  # 新的插值区间及其点的个数
+    y = np.array(points_df["y"]).astype(float)
+    xx = np.linspace(0, SCALE, SCALE + 1)
     f = interp1d(x, y, kind="cubic", fill_value="extrapolate")
     y = f(xx).astype(int)
     return y
@@ -90,7 +90,6 @@ def expand(interp_y):
 def filling(line_df):
     im = np.zeros([WIDTH, WIDTH], dtype=np.int)
     y_prev = np.array(line_df["y"])[0] + SCALE
-    print("y_prev", y_prev)
     for row in line_df.itertuples():
         x = int(getattr(row, "x") + SCALE)
         y = getattr(row, "y") + SCALE
@@ -108,28 +107,12 @@ def filling(line_df):
     return im
 
 
-def gaussian_noise(image):  # 高斯噪声
-    h, w, c = image.shape  # 获取图像高度、宽度、通道
-    for row in range(h):
-        for col in range(w):
-            s = np.random.normal(0, 20, 3)  # 获取随机数，3个数的数组
-
-            image[row, col, 0] = clamp(b + s[0])
-            image[row, col, 1] = clamp(g + s[1])
-            image[row, col, 2] = clamp(r + s[2])
-    cv.imshow("noise_image", image)
-
-
 if __name__ == "__main__":
     n_pics = 0
     while n_pics < 100:
         fixed_points = gen_random_points()
-        print(f"fixed points: {fixed_points}")
-        print("----------")
         y = interp(fixed_points)
-        # print(f"interp: {y}")
         line_df = expand(y)
-        # print(f"line_df: {line_df}")
         im = filling(line_df)
 
         im_blur = gaussian_filter(im, sigma=1)
