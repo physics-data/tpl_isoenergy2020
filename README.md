@@ -169,7 +169,7 @@ python3 damping.py dos-position/0058.h5 dos-position/damp/0023.h5
 在实空间进行平移，使生成散射点不在图像中心，并生成存在多个散射点叠加干涉的 QPI 图样。在本题中我们仅仅要求考虑一阶散射及其衰减，不考虑二阶及以上，或者复杂路径的散射情况，态密度为每个散射点折返路径引发相位和原始相位的叠加。以位于 $\mathbf{r}_1$ 和 $\mathbf{r}_2$ 的两个散射点为例：
 
 $$
-D(\mathbf{r}) = \left| \int \int \mathrm{d}\mathbf{k}_1 \mathrm{d}\mathbf{k}_2 f(\mathbf{k}_1) f(\mathbf{k}_2) 1 + e^{-i 2 \mathbf{k}_1(\mathbf{r}_1 - \mathbf{r})} e^{-\frac{2|\mathbf{r}_1 - \mathbf{r}|}{L}} + e^{-i 2 \mathbf{k}_2(\mathbf{r}_2 - \mathbf{r})} e^{-\frac{2|\mathbf{r}_1 - \mathbf{r}|}{L}} \right|^2 \\
+D(\mathbf{r}) = \left| 1 + \int \int \mathrm{d}\mathbf{k}_1 \mathrm{d}\mathbf{k}'_1 f(\mathbf{k}_1) f(\mathbf{k}'_1) e^{-i (\mathbf{k}_1 - \mathbf{k}'_1)(\mathbf{r}_1 - \mathbf{r})} e^{-\frac{2|\mathbf{r}_1 - \mathbf{r}|}{L}} + \int \int \mathrm{d}\mathbf{k}_2 \mathrm{d}\mathbf{k}'_2 f(\mathbf{k}_2) f(\mathbf{k}'_2) e^{-i (\mathbf{k}_2 - \mathbf{k}'_2)(\mathbf{r}_2 - \mathbf{r})} e^{-\frac{2|\mathbf{r}_1 - \mathbf{r}|}{L}} \right |^2 \\
 $$
 更多的散射点依此类推。
 
