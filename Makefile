@@ -42,7 +42,7 @@ STM/%.png: dos-position/%.h5 gimage.py
 	python3 gimage.py 1 $< $@
 
 
-dos-multi-position/0001.h5: multi_scatter_position.csv dos-position/0058.h5 dos-position/0067.h5 dos-position/0043.h5 dos-position/0083.h5 dos-position/0012.h5 dos-position/0040.h5 dos-position/0018.h5
+dos-multi-position/0001.h5: multi_scatter_position.csv dos-position/0001.h5
 	mkdir -p $(dir $@)
 	python3 multi_scatter.py 0 $^ $@
 
