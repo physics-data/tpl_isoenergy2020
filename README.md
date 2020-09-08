@@ -178,7 +178,7 @@ $$
 程序的调用形式为：
 
 ```bash
-python3 multi_scatter.py 0 multi_scatter_position.csv dos-position/0001.h5 dos-multi-position/0001.h5
+python3 multi_scatter.py 0 multi_scatter_position.csv dos-momentum/0001.h5 dos-multi-position/0001.h5
 ```
 
 ### 提高要求
